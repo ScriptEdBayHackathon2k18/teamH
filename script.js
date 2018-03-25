@@ -14,8 +14,10 @@ function keyDown(e) {
   $(document).one("keyup", keyup)
   var animation = change[e.which];
   going = setInterval(keepGoing, 1);
-  function keepGoing() {
-    $("#character").css(animation)
+  function keepGoing() 
+    if (($("#character").offset().left < 100) {
+        $("#character").css(animation)
+      }
   }
 }
 
