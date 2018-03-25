@@ -12,3 +12,14 @@ h1 {
 #MC{
   width:50px;
 }
+#main{
+  border:1px solid red;
+  margin-top:-400px;
+  padding:20px; 
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+*{
+  box-sizing:border-box;
+}
