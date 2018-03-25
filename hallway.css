@@ -1,0 +1,10 @@
+html{
+  min-height:100%;
+}
+body{
+  height:100%;
+  justify-content:space-around;
+  display:flex;
+  flex-direction:column;
+  align-items:center; 
+}

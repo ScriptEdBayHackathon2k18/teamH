@@ -1,8 +1,8 @@
-var container = $('#container'),
-    character = $('#character'),
-    w = container.width() - character.width(),
+var pane = $('#container'),
+    box = $('#character'),
+    w = pane.width() - box.width(),
     d = {},
-    x = 10;
+    x = 10; // speed
 
 function newv(v,a,b) {
     var n = parseInt(v, 10) - (d[a] ? x : 0) + (d[b] ? x : 0);
@@ -13,22 +13,7 @@ $(window).keydown(function(e) { d[e.which] = true; });
 $(window).keyup(function(e) { d[e.which] = false; });
 
 setInterval(function() {
-    character.css({
-        left: function(i,v) { return newv(v, 37, 38); },
-        
+    box.css({
+        left: function(i,v) { return newv(v, 37, 39); },
     });
 }, 20);
-
-
-
-
-
-
-
-
-
-
-
-
-
-

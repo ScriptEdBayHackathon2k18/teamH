@@ -37,7 +37,10 @@ a{
 *{
   box-sizing:border-box;
 }
-
+#container {
+position: relative;
+width: 800px; height: 600px;
+}
 #character{
 position: absolute;
   bottom: 25px;
