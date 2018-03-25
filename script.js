@@ -1,23 +1,67 @@
-/* global createCanvas, line, mouseIsPressed, fill, mouseX, mouseY, ellipse , angleMode , DEGREES , rect */
+/* global width, height, Group, createCanvas, collideDebug, createSprite, textAlign, background, noStroke, fill, text, color, CENTER, keyCode, key, drawSprites, LEFT_ARROW, RIGHT_ARROW, hit, collideRectRect, windowHeight, windowWidth, collidePointPoint */ 
 
-var pane = $('#container'),
-    box = $('#character'),
-    w = pane.width() - box.width(),
-    d = {},
-    x = 10; // speed
+var maincharacter;
+var hit;
+var eighthgraders;
+var boyle;
 
-function newv(v,a,b) {
-    var n = parseInt(v, 10) - (d[a] ? x : 0) + (d[b] ? x : 0);
-    return n < 0 ? 0 : n > w ? w : n;
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+  maincharacter = createSprite(
+    width/2, height/3, 40, 40);
+  
+  maincharacter.shapeColor = color(255);
+  
+  
+    boyle = createSprite(
+    width/2, height/2, 80, 80);
+  
+  boyle.shapeColor = color(111);
+  
+  eighthgraders = createSprite(
+    width/2, height/3, 40, 40);
+  
+  eighthgraders.shapeColor = color(152);
+
+
 }
 
-$(window).keydown(function(e) { d[e.which] = true; });
-$(window).keyup(function(e) { d[e.which] = false; });
+function draw() {
+  background(50);
+  fill(255);
+  textAlign(CENTER, CENTER);
+  drawSprites();
+  hit = collideRectRect(eighthgraders.x,eighthgraders.y, maincharacter.x,maincharacter.y, 50, 50);
+  if (hit){
+  print("colliding? " + hit);  
+  }
 
-setInterval(function() {
-    box.css({
-        left: function(i,v) { return newv(v, 37, 39); },
-    });
-}, 20);
+}
 
-//https://github.com/bmoren/p5.collide2D
+function randomWithRange(min, max){
+   var range = (max - min) + 1;     
+   return (Math.random() * range) + min;
+}
+
+function genEightGraders(count, stagger) {
+  var eighthGraders = new Group();
+  var eighthGrader = createSprite(width/2, height/3, 40, 40);
+  for(var i=0; i<count; i++)
+    {  
+      eighthGraders.add(createSprite(width/2, height/3, randomWithRange(40), 40));
+    }
+  return eighthgraders
+}
+
+function keyPressed() {
+  if (keyCode == RIGHT_ARROW) {
+    maincharacter.setSpeed(10, 0);
+  }
+  else if (keyCode == LEFT_ARROW) {
+    maincharacter.setSpeed(10, 180);
+  }
+  else if (key == ' ') {
+    maincharacter.setSpeed(0, 0);
+  }
+  return false;
+}
