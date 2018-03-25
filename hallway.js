@@ -5,5 +5,5 @@ function setup()
     angleMode(DEGREES);
     line(0,700,0,0);
     line(399,700,399,0);
-    //createSprite(200,650,20,20);
+    createSprite(200,650,20,20);
 }
