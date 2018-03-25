@@ -1,2 +1,20 @@
 console.log('hi');
+$("#character")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
