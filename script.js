@@ -1,3 +1,5 @@
+/* global createCanvas, line, mouseIsPressed, fill, mouseX, mouseY, ellipse , angleMode , DEGREES , rect */
+
 var pane = $('#container'),
     box = $('#character'),
     w = pane.width() - box.width(),
